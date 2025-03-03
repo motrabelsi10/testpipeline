@@ -1,0 +1,279 @@
+{
+    "elements": [
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "50",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "alphabet",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "label": "Nom",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "nom",
+                            "placeholder": "Veuillez saisir votre prénom",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "50",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "alphabet",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "label": "Prénom",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "prenom",
+                            "placeholder": "Veuillez saisir votre prénom",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DuplicateValueValidator",
+                                "properties": {
+                                    "regex": "",
+                                    "formDefId": "client",
+                                    "errorDuplicateMsg": "",
+                                    "mandatory": "true",
+                                    "errorFormatMsg": "",
+                                    "fieldId": "email"
+                                }
+                            },
+                            "label": "E-mail",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "email",
+                            "placeholder": "Veuillez saisir votre e-mail",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "15",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "label": "Numéro de téléphone",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "numero_de_telephone",
+                            "placeholder": "Veuillez saisir votre numéro de téléphone",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "header-style-background-color": "#007BFF",
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "Création de compte admin",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "id": "creation_de_compte_admin",
+                "join": "",
+                "readonlyLabel": "",
+                "header-style-color": "rgba(255, 255, 255, 0.98)"
+            }
+        },
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.PasswordField",
+                        "properties": {
+                            "strengthChecker": "",
+                            "size": "",
+                            "readonly": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "org.joget.marketplace.MultiFormValidator",
+                                "properties": {
+                                    "thirdValidator": {
+                                        "className": "",
+                                        "properties": {}
+                                    },
+                                    "firstValidator": {
+                                        "className": "org.joget.apps.form.lib.DefaultValidator",
+                                        "properties": {
+                                            "type": "",
+                                            "message": "Veuillez saisir un mot de passe qui contient au moins 6 chiffres, au moins un caractère spécial, et au moins une lettre.",
+                                            "mandatory": "true"
+                                        }
+                                    },
+                                    "secondValidator": {
+                                        "className": "org.joget.apps.form.lib.BeanShellValidator",
+                                        "properties": {
+                                            "decoration": "",
+                                            "script": "import java.util.regex.Pattern;\nimport java.util.regex.Matcher;\n\n\nimport java.util.Arrays;\n\n\nimport org.joget.apps.app.service.AppUtil;\nimport org.joget.apps.form.model.Element;\nimport org.joget.apps.form.model.Form;\nimport org.joget.apps.form.model.FormData;\nimport org.joget.apps.form.service.FormUtil;\n\nimport org.joget.commons.util.LogUtil;\n \npublic boolean validate(Element element, FormData formData ,String[] values) {\n    \n    \n        //get old password value from form data object\nString id = FormUtil.getElementParameterName(element);\n     String pattern =\"^(?=(.*\\\\d.*){6})(?=.*[a-zA-Z])(?=.*[^\\\\da-zA-Z]).{8,}$\";\n\n    boolean isMatch = Pattern.matches(pattern, values[0]);\n\n  if (isMatch!=true){\n      \n\n      formData.addFormError(id, \"Votre mot de passe est considéré comme faible. Pour des raisons de sécurité, veuillez choisir un mot de passe qui contient au moins 6 chiffres, au moins un caractère spécial, et au moins une lettre.\");\n      return false;\n\n  }\n      \n  \n\n\n    return isMatch;\n}\n \n//call validate method with injected variable\nreturn validate(element,formData,values);"
+                                        }
+                                    },
+                                    "fifthValidator": {
+                                        "className": "",
+                                        "properties": {}
+                                    },
+                                    "fourthValidator": {
+                                        "className": "",
+                                        "properties": {}
+                                    }
+                                }
+                            },
+                            "id": "nouveau_mdp",
+                            "label": "Mot de passe",
+                            "value": "",
+                            "readonlyLabel": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.PasswordField",
+                        "properties": {
+                            "strengthChecker": "",
+                            "size": "",
+                            "readonly": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.BeanShellValidator",
+                                "properties": {
+                                    "decoration": "",
+                                    "script": "import java.util.Arrays;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.apps.form.model.Element;\r\nimport org.joget.apps.form.model.Form;\r\nimport org.joget.apps.form.model.FormData;\r\nimport org.joget.apps.form.service.FormUtil;\r\n \r\npublic boolean validate(Element element, FormData formData, String[] values) {\r\n    boolean result = true;\r\n \r\n    //get field 1 value from form data object\r\n    String field1Id = \"nouveau_mdp\";\r\n    Form form = FormUtil.findRootForm(element);\r\n    Element field1 = FormUtil.findElement(field1Id, form, formData);\r\n \r\n    if (field1 != null) {\r\n        //get value of field 1\r\n        String[] compareValues = FormUtil.getElementPropertyValues(field1, formData);\r\n \r\n        //compare the value of field 2 and field 1 are equals\r\n        if (!Arrays.equals(values, compareValues)) {\r\n            String id = FormUtil.getElementParameterName(element);\r\n            formData.addFormError(id, \"Vérifier si les mots de passes sont identiques\");\r\n            result = false;\r\n        }\r\n    } else {\r\n        //ignore if the field 1 not exist\r\n    }\r\n \r\n    return result;\r\n}\r\n \r\n//call validate method with injected variable\r\nreturn validate(element, formData, values);"
+                                }
+                            },
+                            "id": "confirm",
+                            "label": "Confirmer votre mot de passe",
+                            "value": "",
+                            "readonlyLabel": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.CustomHTML",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "autoPopulate": "",
+                            "label": "",
+                            "id": "field9",
+                            "value": "<script>\r\n        // Get the email and id fields\r\n        const emailField = document.getElementById('email');\r\n        const idField = document.getElementById('id');\r\n\r\n        // Add an event listener for changes in the email field\r\n        emailField.addEventListener('input', function() {\r\n            // Set the value of the id field to the value of the email field\r\n            idField.value = emailField.value;\r\n        });\r\n\r\nfunction chanegeInputType1(id, showClass, hideClass) {\r\n    const passwordField = document.getElementById(id);\r\n    const passwordShow = document.querySelector(`.${showClass}`);\r\n    const textShow = document.querySelector(`.${hideClass}`);\r\n\r\n    if (passwordField.type === 'password') {\r\n        passwordField.type = 'text';\r\n        passwordShow.style.display = 'none';\r\n        textShow.style.display = 'inline';\r\n    } else {\r\n        passwordField.type = 'password';\r\n        passwordShow.style.display = 'inline';\r\n        textShow.style.display = 'none';\r\n    }\r\n}\r\n\r\n$(document).ready(function() {\r\n    // For \"New Password\" field\r\n    const passwordContainer1 = $('<div>').addClass('PasswordContainer').attr('id', 'nouvmdp');\r\n    const inputElement1 = $('#nouveau_mdp');\r\n    inputElement1.wrap(passwordContainer1);\r\n\r\n    inputElement1.after(`\r\n        <span onclick=\"chanegeInputType1('nouveau_mdp', 'password-show1', 'text-show1')\" class=\"password-show1\"><i class=\"fa fa-eye\" aria-hidden=\"true\"><\/i><\/span>\r\n        <span onclick=\"chanegeInputType1('nouveau_mdp', 'password-show1', 'text-show1')\" class=\"text-show1\"><i class=\"fa fa-eye-slash\" aria-hidden=\"true\"><\/i><\/span>\r\n    `);\r\n\r\n    // For \"Confirm Password\" field\r\n    const passwordContainer2 = $('<div>').addClass('PasswordContainer').attr('id', 'confmdp');\r\n    const inputElement2 = $('#confirm');\r\n    inputElement2.wrap(passwordContainer2);\r\n\r\n    inputElement2.after(`\r\n        <span onclick=\"chanegeInputType1('confirm', 'password-show2', 'text-show2')\" class=\"password-show2\"><i class=\"fa fa-eye\" aria-hidden=\"true\"><\/i><\/span>\r\n        <span onclick=\"chanegeInputType1('confirm', 'password-show2', 'text-show2')\" class=\"text-show2\"><i class=\"fa fa-eye-slash\" aria-hidden=\"true\"><\/i><\/span>\r\n    `);\r\n\r\n    // Hide the text-show spans initially for both fields\r\n    $('.text-show1').hide();\r\n    $('.text-show2').hide();\r\n});\r\n\r\n\r\n\r\n<\/script>\r\n<style>\r\n.PasswordContainer {\r\n    height: auto;\r\n    position: relative;\r\n    display: inline-block;\r\n    width: 100%; /* Ensure the container takes the full width */\r\n}\r\n\r\n.PasswordContainer input {\r\n    padding-right: 40px; /* Increase space for the eye icon */\r\n    font-size: 16px; /* Adjust font size for better readability */\r\n}\r\n\r\n.password-show1,\r\n.text-show1,\r\n.password-show2,\r\n.text-show2 {\r\n    position: absolute;\r\n    top: 50%; /* Center vertically */\r\n    transform: translateY(-50%);\r\n    right: 10px; /* Adjust right positioning */\r\n    cursor: pointer;\r\n    font-size: 20px; /* Adjust icon size */\r\n    color: #007bff; /* Change icon color */\r\n    transition: color 0.3s, transform 0.3s; /* Smooth transitions */\r\n}\r\n\r\n\r\n\r\n.text-show1,\r\n.text-show2 {\r\n    display: none; /* Hide text-show spans initially */\r\n}\r\n\r\n.password-show1 {\r\n    display: inline; /* Display password-show span initially */\r\n}\r\n\r\n.password-show2 {\r\n    display: inline; /* Display password-show span initially */\r\n}\r\n\r\n<\/style>"
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "id": "section3",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        }
+    ],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "noPermissionMessage": "",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Admin",
+        "description": "",
+        "postProcessorRunOn": "both",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "id": "admin",
+        "postProcessor": {
+            "className": "org.joget.apps.app.lib.BeanShellTool",
+            "properties": {"script": "import java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport org.joget.apps.app.service.AppUtil;\nimport org.joget.commons.util.LogUtil;\nimport org.joget.commons.util.StringUtil;\nimport org.joget.directory.dao.EmploymentDao;\nimport org.joget.directory.dao.UserDao;\nimport org.joget.commons.util.UuidGenerator;\n\nUuidGenerator uuid=UuidGenerator.getInstance();\n\nString id_to_use=uuid.getUuid();\n\n\n    UserDao userDao = (UserDao) AppUtil.getApplicationContext().getBean(\"userDao\");\n    EmploymentDao employmentDao = (EmploymentDao) AppUtil.getApplicationContext().getBean(\"employmentDao\");\n    \n    String id = \"#form.admin.id#\";\n    String Nom = \"#form.admin.nom#\";\n    String prenom = \"#form.admin.prenom#\";\n    String username = \"#form.admin.email#\";\n    String tel = \"#form.admin.numero_de_telephone#\";\n\n    public void createUser() {\n        String password = \"#form.admin.nouveau_mdp#\";\n        String pass = StringUtil.md5Base16(password);\n        Connection con = null;\n        \n        try {\n            DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\n            con = ds.getConnection();\n\n            if (!con.isClosed()) {\n                String sql1 = \"INSERT INTO jwdb.dir_user (id, username, firstName, lastName, email, password, active) VALUES ('\" + username + \"', '\" + username + \"', '\" + prenom + \"', '\" + Nom + \"', '\" + username + \"', '\" + pass + \"', 1);\";\n                PreparedStatement stmt1 = con.prepareStatement(sql1);\n                stmt1.executeUpdate();\n                LogUtil.info(\"User Creation\", sql1);\n                \n                String sql2 = \"INSERT INTO jwdb.dir_user_role (roleId, userId) VALUES ('ROLE_ADMIN', '\" + username + \"')\";\n                PreparedStatement stmt2 = con.prepareStatement(sql2);\n                stmt2.executeUpdate();\n                LogUtil.info(\"User Role Assignment\", sql2);\n                \n                String sql3 = \"INSERT INTO jwdb.dir_employment (id, userId, departmentId, organizationId) VALUES ('\"+id_to_use+\"', '\" + username + \"', 'administrateurs', 'voitures')\";\n                PreparedStatement stmt3 = con.prepareStatement(sql3);\n                stmt3.executeUpdate();\n                LogUtil.info(\"User Employment Assignment\", sql3);\n            }\n        } catch (Exception e) {\n            LogUtil.error(\"User Creation Error\", e, e.getMessage());\n        } finally {\n            try {\n                if (con != null) {\n                    con.close();\n                }\n            } catch (SQLException e) {\n                LogUtil.error(\"Database Connection Close Error\", e, e.getMessage());\n            }\n        }\n    }\ncreateUser();\n"}
+        },
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "admin"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [{
+        "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+        "id": "rowAction_0",
+        "properties": {
+            "hrefColumn": "uuid",
+            "hrefParam": "uuid",
+            "rules": [],
+            "label": "consulter les modèles",
+            "href": "liste_modeles?embed=true",
+            "confirmation": "",
+            "link-css-display-type": "btn btn-sm btn-primary",
+            "datalist_type": "row_action",
+            "target": "popup",
+            "header_label": ""
+        }
+    }],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "nom_marque",
+            "id": "column_0",
+            "label": "Nom de marque",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "slogan",
+            "id": "column_1",
+            "label": "Slogan",
+            "sortable": "false"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Liste marques",
+    "id": "liste_marques",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "paramtrage_des_marque",
+            "extraCondition": ""
+        }
+    },
+    "actions": [],
+    "order": ""
+}

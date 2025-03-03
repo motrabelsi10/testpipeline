@@ -1,0 +1,229 @@
+{
+    "className": "org.joget.apps.userview.model.Userview",
+    "categories": [
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "menus": [{
+                "className": "org.joget.apps.userview.lib.FormMenu",
+                "properties": {
+                    "loadDataWithKey": "",
+                    "redirectUrlOnCancel": "",
+                    "actionOnCancel": "",
+                    "redirectTargetOnCancel": "top",
+                    "customFooter": "",
+                    "paramName": "",
+                    "enableOffline": "",
+                    "afterSavedReloadTarget": "true",
+                    "customId": "accueil",
+                    "showInPopupDialog": "",
+                    "readonly": "Yes",
+                    "cancelButtonLabel": "",
+                    "actionAfterSaved": "",
+                    "showEditButton": "",
+                    "id": "9FC085E7E61B45E57D6E3CB98BE3AD16",
+                    "redirectUrlAfterComplete": "",
+                    "fieldPassover": "",
+                    "formId": "welcome",
+                    "customHeader": "",
+                    "fieldPassoverMethod": "append",
+                    "redirectTargetOnComplete": "",
+                    "keyName": "",
+                    "label": "Accueil",
+                    "userviewCacheDuration": "20",
+                    "messageShowAfterComplete": "",
+                    "submitButtonLabel": "",
+                    "userviewCacheScope": "",
+                    "readonlyLabel": ""
+                }
+            }],
+            "properties": {
+                "id": "category-EE74E4F4426241BD9BC3BC73B1D24AC7",
+                "label": "<i class='fa fa-home'><\/i> Home"
+            }
+        },
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "menus": [{
+                "className": "org.joget.apps.userview.lib.FormMenu",
+                "properties": {
+                    "loadDataWithKey": "",
+                    "redirectUrlOnCancel": "",
+                    "actionOnCancel": "",
+                    "redirectTargetOnCancel": "top",
+                    "customFooter": "",
+                    "paramName": "",
+                    "enableOffline": "",
+                    "afterSavedReloadTarget": "true",
+                    "customId": "",
+                    "showInPopupDialog": "",
+                    "readonly": "",
+                    "cancelButtonLabel": "",
+                    "actionAfterSaved": "",
+                    "id": "F72E73955F894A05A798C7B7174157A8",
+                    "redirectUrlAfterComplete": "/jw/web/login",
+                    "fieldPassover": "",
+                    "formId": "client",
+                    "customHeader": "",
+                    "fieldPassoverMethod": "append",
+                    "redirectTargetOnComplete": "",
+                    "keyName": "",
+                    "label": "Formulaire d'inscription",
+                    "userviewCacheDuration": "20",
+                    "messageShowAfterComplete": "Votre compte a été créé avec succès ! Vous pouvez maintenant vous connecter.",
+                    "submitButtonLabel": "Confirmer la création de votre compte",
+                    "userviewCacheScope": "",
+                    "readonlyLabel": "true"
+                }
+            }],
+            "properties": {
+                "hide": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "label": "Inscription",
+                "id": "category-B20D8822224F40CB89BA85A94B095AB7"
+            }
+        },
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "menus": [
+                {
+                    "className": "org.joget.apps.userview.lib.DataListMenu",
+                    "properties": {
+                        "cacheAllLinks": "",
+                        "customHeader": "",
+                        "keyName": "",
+                        "customFooter": "",
+                        "label": "clients",
+                        "enableOffline": "",
+                        "customId": "clients",
+                        "buttonPosition": "bothLeft",
+                        "datalistId": "clients",
+                        "checkboxPosition": "left",
+                        "selectionType": "multiple",
+                        "userviewCacheDuration": "20",
+                        "cacheListAction": "",
+                        "userviewCacheScope": "",
+                        "rowCount": "",
+                        "id": "64C5CE25C5B44C52D64DAF295013C801"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.userview.lib.DataListMenu",
+                    "properties": {
+                        "cacheAllLinks": "",
+                        "customHeader": "",
+                        "keyName": "",
+                        "customFooter": "",
+                        "label": "admin",
+                        "enableOffline": "",
+                        "customId": "",
+                        "buttonPosition": "bothLeft",
+                        "datalistId": "administrateurs",
+                        "checkboxPosition": "left",
+                        "selectionType": "multiple",
+                        "userviewCacheDuration": "20",
+                        "cacheListAction": "",
+                        "userviewCacheScope": "",
+                        "rowCount": "",
+                        "id": "D39A975509C24BCB2CD1D1EB6682C305"
+                    }
+                }
+            ],
+            "properties": {
+                "hide": "yes",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "label": "Hidden",
+                "id": "category-8273FA156F52438274F8BFDE02E08C7F"
+            }
+        }
+    ],
+    "properties": {
+        "logoutText": "Logout",
+        "welcomeMessage": "#date.EEE, d MMM yyyy#",
+        "name": "Accueil",
+        "description": "",
+        "footerMessage": "Powered by Joget",
+        "id": "auth_client"
+    },
+    "setting": {"properties": {
+        "__": "",
+        "userviewDescription": "",
+        "userviewId": "auth_client",
+        "hideThisUserviewInAppCenter": "",
+        "userview_thumbnail": "",
+        "userview_category": "",
+        "theme": {
+            "className": "org.joget.apps.userview.lib.AjaxUniversalTheme",
+            "properties": {
+                "dx8navBadge": "#1677FF",
+                "css": "",
+                "loginBackground": "",
+                "dx8navLinkColor": "rgba(0, 0, 0, 0.88)",
+                "disablePush": "",
+                "removeAssignmentTitle": "",
+                "shortcutLinkLabel": "Shortcut",
+                "disableHelpGuide": "",
+                "logo": "",
+                "enableResponsiveSwitch": "",
+                "dx8headerFontColor": "rgba(0, 0, 0, 0.88)",
+                "fav_icon": "",
+                "mobileViewDisabled": "",
+                "dx8navLinkIcon": "#FFFFFF",
+                "horizontal_menu": "",
+                "profile": "",
+                "homeAttractBanner": "",
+                "dx8headingBgColor": "#FFFFFF",
+                "dx8linkColor": "#1677FF",
+                "homeUrl": "",
+                "dx8linkActiveColor": "#69B1FF",
+                "dx8footerColor": "rgba(0, 0, 0, 0.88)",
+                "subheader": "",
+                "disablePwa": "",
+                "dx8contentbackground": "#FFFFFF",
+                "loginPageBottom": "",
+                "dx8backgroundImage": "",
+                "dx8navBadgeText": "#FFFFFF",
+                "dx8background": "#F0F2F5",
+                "dx8headerColor": "#FFFFFF",
+                "dx8colorScheme": "rgb(233, 233, 233);rgb(255, 255, 255);rgb(174, 202, 199);rgb(44, 101, 98);rgb(25, 118, 210);rgb(0, 75, 160)",
+                "dx8navBackground": "#FFFFFF",
+                "compactTheme": "",
+                "js": "",
+                "dx8navActiveIconColor": "#1677FF",
+                "dx8navScrollbarThumb": "#C4C4C4",
+                "userMenu": [],
+                "urlsToCache": "",
+                "loginPageTop": "",
+                "userImage": "",
+                "dx8buttonColor": "#FFFFFF",
+                "shortcut": [],
+                "fontControl": "",
+                "dx8navActiveLinkBackground": "#E6F4FF",
+                "dx8fontColor": "rgba(0, 0, 0, 0.88)",
+                "dx8navLinkBackground": "#FFFFFF",
+                "dx8buttonBackground": "#1677FF",
+                "dx8contentFontColor": "rgba(0, 0, 0, 0.88)",
+                "subfooter": "",
+                "mobileCacheEnabled": "",
+                "dx8footerBackground": "#F0F2F5",
+                "dx8headingFontColor": "rgba(0, 0, 0, 0.88)",
+                "dx8primaryColor": "#1677FF",
+                "darkMode": "",
+                "dx8navActiveLinkColor": "#1677FF",
+                "inbox": "current"
+            }
+        },
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "userviewName": "Authentification client"
+    }}
+}

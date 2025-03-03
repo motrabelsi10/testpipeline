@@ -1,0 +1,51 @@
+{
+    "elements": [{
+        "elements": [{
+            "elements": [{
+                "className": "org.joget.apps.form.lib.CustomHTML",
+                "properties": {
+                    "autoPopulate": "False",
+                    "label": "",
+                    "id": "field1"
+                }
+            }],
+            "className": "org.joget.apps.form.model.Column",
+            "properties": {"width": "100%"}
+        }],
+        "className": "org.joget.apps.form.model.Section",
+        "properties": {
+            "visibilityControl": "",
+            "permissionReadonly": "",
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "label": "Avis et notes",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityValue": "",
+            "regex": "",
+            "readonly": "",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "comment": "",
+            "id": "avis_notes",
+            "join": "",
+            "readonlyLabel": ""
+        }
+    }],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "loadBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "name": "Page avis",
+        "description": "",
+        "id": "page_avis",
+        "storeBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "tableName": "page_avis"
+    }
+}

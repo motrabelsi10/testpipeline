@@ -1,0 +1,30 @@
+<appDefinition>
+   <appId>vente_voitures</appId>
+   <id>vente_voitures</id>
+   <version></version>
+   <name>Vente voitures</name>
+   <packageDefinitionList/>
+   <formDefinitionList/>
+   <userviewDefinitionList/>
+   <datalistDefinitionList/>
+   <builderDefinitionList/>
+   <pluginDefaultPropertiesList/>
+   <environmentVariableList>
+      <environmentVariable>
+         <id>counter</id>
+         <appId>vente_voitures</appId>
+         <appVersion>5</appVersion>
+         <value>11</value>
+         <remarks>Used for plugin: Id Generator Field</remarks>
+      </environmentVariable>
+      <environmentVariable>
+         <id>marque_identity</id>
+         <appId>vente_voitures</appId>
+         <appVersion>5</appVersion>
+         <value>8</value>
+         <remarks>Used for plugin: Id Generator Field</remarks>
+      </environmentVariable>
+   </environmentVariableList>
+   <messageList/>
+   <resourceList/>
+</appDefinition>

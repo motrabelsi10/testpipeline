@@ -1,0 +1,610 @@
+{
+    "elements": [
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "id_commande",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Nom",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "nom",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Prénom",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "prenom",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Numéro de téléphone",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "numero_de_telephone",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Email",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "email",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "Commande de voiture",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                    "properties": {
+                        "autoHandleWorkflowVariable": "true",
+                        "cacheInterval": "",
+                        "script": "import java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport javax.sql.DataSource;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.apps.form.model.FormRow;\r\n\r\n// Récupérer l'email du client\r\nString email = \"#currentUser.email#\";  \r\n\r\nConnection con = null;\r\nFormRowSet formRowSet = new FormRowSet();  // Créer un FormRowSet\r\n\r\ntry {\r\n    // Connexion à la base de données\r\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n    con = ds.getConnection();\r\n\r\n    if (!con.isClosed()) {\r\n        // Requête SQL pour récupérer les informations du client par email\r\n        String sql = \"SELECT * FROM jwdb.app_fd_client WHERE c_email = ?\";\r\n        PreparedStatement stmt = con.prepareStatement(sql);\r\n        stmt.setString(1, email);  // Utilisez l'email récupéré depuis le formulaire client\r\n        ResultSet rs = stmt.executeQuery();\r\n\r\n        // Si l'utilisateur est trouvé, remplir les champs du formulaire commande voiture\r\n        if (rs.next()) {\r\n            // Créer une nouvelle ligne pour FormRowSet\r\n            FormRow row = new FormRow();\r\n            \r\n            // Récupérer les données du client et les insérer dans la FormRow\r\n            row.put(\"nom\", rs.getString(\"c_nom\"));\r\n            row.put(\"prenom\", rs.getString(\"c_prenom\"));\r\n            row.put(\"email\", rs.getString(\"c_email\"));\r\n            row.put(\"numero_de_telephone\", rs.getString(\"c_numero_de_telephone\"));\r\n            \r\n            // Ajouter la ligne au FormRowSet\r\n            formRowSet.add(row);\r\n        }\r\n    }\r\n} catch (Exception e) {\r\n    LogUtil.error(\"Error populating user data\", e, e.getMessage());\r\n} finally {\r\n    try {\r\n        if (con != null) {\r\n            con.close();\r\n        }\r\n    } catch (Exception e) {\r\n        LogUtil.error(\"Error closing database connection\", e, e.getMessage());\r\n    }\r\n}\r\n\r\n// Retourner le FormRowSet rempli\r\nreturn formRowSet;\r\n",
+                        "autoHandleFiles": ""
+                    }
+                },
+                "comment": "",
+                "id": "commande_de_voiture",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        },
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Marque",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "marque",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Modèle",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "modele",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Type de carburant",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "type_de_carburant",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Puissance(ch)",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "puissance_ch",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Transmission",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "transmission",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Nombre de places",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "nombre_de_places",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Nombre de portes",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "nombre_de_portes",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Couleur de la voiture",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "couleur_voiture",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Nombre de voitures disponibles",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "nombre_de_voitures_disponibles",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                    "properties": {
+                        "autoHandleWorkflowVariable": "",
+                        "cacheInterval": "",
+                        "script": "import java.sql.Connection; \r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport javax.sql.DataSource;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.apps.form.model.FormRow;\r\n\r\n// Connexion à la base de données et préparation de la récupération des données de la voiture\r\nString idVoiture = \"#variable.id_voiture#\";  // L'ID de la voiture à récupérer (peut être fourni dynamiquement)\r\n\r\n// Connexion à la base de données\r\nConnection con = null;\r\nFormRowSet formRowSet = new FormRowSet();  // Créer un FormRowSet\r\n\r\ntry {\r\n    // Connexion à la base de données\r\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n    con = ds.getConnection();\r\n\r\n    if (!con.isClosed()) {\r\n        // Requête SQL pour récupérer les informations de la voiture avec l'ID de la voiture\r\n        String sql = \"SELECT c_marque, c_modele, c_type_de_carburant, c_puissance_ch, c_transmission, \"\r\n                   + \"c_nombre_de_places, c_nombre_de_portes, c_nombre_de_voitures_disponibles, c_couleur_de_la_voiture \" \r\n                   + \"FROM jwdb.app_fd_ajout_voiture WHERE id = ?\";\r\n        PreparedStatement stmt = con.prepareStatement(sql);\r\n        stmt.setString(1, idVoiture);  // Utilisez l'ID de la voiture pour filtrer les résultats\r\n        ResultSet rs = stmt.executeQuery();\r\n\r\n        // Si des résultats sont trouvés, remplir le FormRowSet\r\n        while (rs.next()) {\r\n            // Créer une nouvelle ligne pour FormRowSet\r\n            FormRow row = new FormRow();\r\n            \r\n            // Récupérer les données de la voiture et les insérer dans la FormRow\r\n            row.put(\"marque\", rs.getString(\"c_marque\"));\r\n            row.put(\"modele\", rs.getString(\"c_modele\"));\r\n            row.put(\"type_de_carburant\", rs.getString(\"c_type_de_carburant\"));\r\n            row.put(\"puissance_ch\", rs.getString(\"c_puissance_ch\"));\r\n            row.put(\"transmission\", rs.getString(\"c_transmission\"));\r\n            row.put(\"nombre_de_places\", rs.getString(\"c_nombre_de_places\"));\r\n            row.put(\"nombre_de_portes\", rs.getString(\"c_nombre_de_portes\"));\r\n            row.put(\"nombre_de_voitures_disponibles\", rs.getString(\"c_nombre_de_voitures_disponibles\"));\r\n            row.put(\"couleur_voiture\", rs.getString(\"c_couleur_de_la_voiture\"));\r\n            // Ajouter la ligne au FormRowSet\r\n            formRowSet.add(row);\r\n        }\r\n    }\r\n} catch (Exception e) {\r\n    LogUtil.error(\"Error populating car data\", e, e.getMessage());\r\n} finally {\r\n    try {\r\n        if (con != null) {\r\n            con.close();\r\n        }\r\n    } catch (Exception e) {\r\n        LogUtil.error(\"Error closing database connection\", e, e.getMessage());\r\n    }\r\n}\r\n\r\n// Retourner le FormRowSet rempli\r\nreturn formRowSet;\r\n",
+                        "autoHandleFiles": ""
+                    }
+                },
+                "comment": "",
+                "id": "description_voiture",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        },
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "label": "Adresse",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "adresse",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.Radio",
+                        "properties": {
+                            "fullWidth": "",
+                            "controlField": "",
+                            "readonly": "",
+                            "optionsBinder": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "options": [
+                                {
+                                    "label": "Carte bancaire",
+                                    "value": "Carte bancaire",
+                                    "grouping": ""
+                                },
+                                {
+                                    "label": "A l'agence",
+                                    "value": "A l'agence",
+                                    "grouping": ""
+                                }
+                            ],
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "label": "Mode de paiement",
+                            "id": "mode_de_paiement",
+                            "value": "",
+                            "readonlyLabel": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "id": "section4",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        },
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "label": "Numéro de carte bancaire",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "numero_de_carte_bancaire",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.DatePicker",
+                        "properties": {
+                            "yearRange": "c-10:c+10",
+                            "dataFormat": "yyyy-MM-dd",
+                            "startDateFieldId": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "format": "",
+                            "label": "Date d'expiration de la carte bancaire",
+                            "datePickerType": "",
+                            "currentDateAs": "",
+                            "endDateFieldId": "",
+                            "readonly": "",
+                            "allowManual": "",
+                            "workflowVariable": "",
+                            "id": "date_d_expiration_de_la_carte",
+                            "placeholder": "",
+                            "disableWeekends": "",
+                            "value": "",
+                            "readonlyLabel": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.TextField",
+                        "properties": {
+                            "requiredSanitize": "",
+                            "maxlength": "",
+                            "validator": {
+                                "className": "org.joget.apps.form.lib.DefaultValidator",
+                                "properties": {
+                                    "type": "",
+                                    "message": "",
+                                    "mandatory": "true"
+                                }
+                            },
+                            "label": "Code de sécurité de la carte bancaire (CVV)",
+                            "disableIncrementDecrementArrow": "",
+                            "readonly": "",
+                            "size": "",
+                            "workflowVariable": "",
+                            "style": "",
+                            "id": "code_de_securite_de_la_carte",
+                            "placeholder": "",
+                            "value": "",
+                            "readonlyLabel": "",
+                            "storeNumeric": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "mode_de_paiement",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "Carte bancaire",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "id": "section5",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        }
+    ],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "noPermissionMessage": "",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Commande voiture",
+        "description": "",
+        "postProcessorRunOn": "create",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "id": "commande_voiture",
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "commande_voiture"
+    }
+}

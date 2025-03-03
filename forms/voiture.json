@@ -1,0 +1,296 @@
+{
+    "elements": [
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.IdGeneratorField",
+                        "properties": {
+                            "hidden": "",
+                            "format": "ID-??????",
+                            "workflowVariable": "",
+                            "envVariable": "counter",
+                            "isDistributedGeneration": "",
+                            "label": "ID Generator",
+                            "id": "id_voiture"
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "id_marque",
+                            "value": ""
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "Détails de la marque et du modèle",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "org.joget.apps.form.lib.BeanShellFormBinder",
+                    "properties": {
+                        "autoHandleWorkflowVariable": "true",
+                        "cacheInterval": "",
+                        "script": "import org.joget.apps.form.model.FormRow;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.apps.form.model.Form;\r\nimport org.joget.apps.form.service.FormService;\r\nimport org.joget.apps.form.service.FormUtil;\r\nimport org.joget.commons.util.LogUtil;\r\nimport org.joget.commons.util.UuidGenerator;\r\nimport org.joget.apps.app.service.AppUtil;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport javax.sql.DataSource;\r\nimport org.joget.commons.util.LogUtil;\r\n\r\n \r\n \r\n        FormRowSet f = new FormRowSet();\r\n        f.setMultiRow(true);\r\n        Connection conn =null;\r\n        // Récupérer l'UUID de la marque depuis le champ 'marque' dans le formulaire\r\n        String uuidMarque = \"#form.ajout_voiture.marque#\";  // Le champ 'marque' contient l'UUID de la marque\r\nLogUtil.warn(\"uuidMarque\",uuidMarque);\r\n        if (uuidMarque != null && !uuidMarque.isEmpty()) {\r\n            LogUtil.warn(\"in condition\",\"\");\r\n\r\n            // Requête SQL pour récupérer l'ID de la marque à partir de l'UUID\r\n            try {\r\n                    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n                    conn = ds.getConnection();\r\n                    String sql = \"SELECT id FROM jwdb.app_fd_marques WHERE c_uuid = ?\";\r\n                    PreparedStatement stmt = conn.prepareStatement(sql);\r\n                \r\n                stmt.setString(1, uuidMarque);\r\n                ResultSet rs = stmt.executeQuery();\r\n                \r\n                if (rs.next()) {\r\n                    // Récupérer l'ID de la marque\r\n                    String marqueId = rs.getString(\"id\");\r\n                    \r\n                    // Créer une nouvelle ligne de formulaire avec l'ID de la marque\r\n                    FormRow r1 = new FormRow();\r\n                    r1.put(\"id_marque\", marqueId);  // Insérer l'ID dans le champ caché 'id_marque'\r\n                    LogUtil.warn(\"marqueId\",marqueId);\r\n\r\n                    f.add(r1); // Ajouter la ligne à FormRowSet\r\n                        return f;  // Retourner le FormRowSet avec l'ID de la marque\r\n}\r\n            } catch (Exception e) {\r\n                LogUtil.error(getClass().getName(), e, \"Error retrieving marque ID\");\r\n            }\r\n        }\r\n  ",
+                        "autoHandleFiles": ""
+                    }
+                },
+                "comment": "",
+                "id": "details_marque_modele",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        },
+        {
+            "elements": [{
+                "elements": [
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "modele",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "marque",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "type_de_carburant",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "transmission",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "puissance_ch",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "nombre_de_places",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "nombre_de_portes",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.HiddenField",
+                        "properties": {
+                            "useDefaultWhenEmpty": "",
+                            "validator": {
+                                "className": "",
+                                "properties": {}
+                            },
+                            "workflowVariable": "",
+                            "id": "nombre_de_voitures_disponibles",
+                            "value": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.SubForm",
+                        "properties": {
+                            "parentSubFormId": "id_marque",
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "loadBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "noframe": "",
+                            "formDefId": "marque",
+                            "subFormParentId": "",
+                            "id": "marque",
+                            "label": "",
+                            "storeBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "readonlyLabel": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.SubForm",
+                        "properties": {
+                            "parentSubFormId": "modele",
+                            "readonly": "",
+                            "loadBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "noframe": "",
+                            "formDefId": "modele_voiture",
+                            "subFormParentId": "nom_modele",
+                            "id": "infom",
+                            "label": "",
+                            "storeBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "readonlyLabel": ""
+                        }
+                    },
+                    {
+                        "className": "org.joget.apps.form.lib.SubForm",
+                        "properties": {
+                            "parentSubFormId": "id_voiture",
+                            "permissionHidden": "",
+                            "readonly": "true",
+                            "loadBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "noframe": "",
+                            "formDefId": "ajout_voiture",
+                            "subFormParentId": "",
+                            "id": "field24",
+                            "label": "",
+                            "storeBinder": {
+                                "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+                                "properties": {}
+                            },
+                            "readonlyLabel": "true"
+                        }
+                    }
+                ],
+                "className": "org.joget.apps.form.model.Column",
+                "properties": {"width": "100%"}
+            }],
+            "className": "org.joget.apps.form.model.Section",
+            "properties": {
+                "visibilityControl": "",
+                "permissionReadonly": "",
+                "permission": {
+                    "className": "",
+                    "properties": {}
+                },
+                "label": "",
+                "reverse": "",
+                "storeBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "visibilityValue": "",
+                "regex": "",
+                "readonly": "",
+                "loadBinder": {
+                    "className": "",
+                    "properties": {}
+                },
+                "comment": "",
+                "id": "info",
+                "join": "",
+                "readonlyLabel": ""
+            }
+        }
+    ],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "noPermissionMessage": "",
+        "loadBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "name": "Voiture",
+        "description": "",
+        "postProcessorRunOn": "create",
+        "permission": {
+            "className": "",
+            "properties": {}
+        },
+        "id": "voiture",
+        "postProcessor": {
+            "className": "",
+            "properties": {}
+        },
+        "storeBinder": {
+            "className": "org.joget.apps.form.lib.WorkflowFormBinder",
+            "properties": {}
+        },
+        "tableName": "ajout_voiture"
+    }
+}

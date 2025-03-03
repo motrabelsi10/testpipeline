@@ -1,0 +1,173 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_0",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Modifier commande",
+                "href": "modification_commande?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "popup",
+                "header_label": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.datalist.lib.FormRowDeleteDataListAction",
+            "id": "rowAction_1",
+            "properties": {
+                "deleteFiles": "",
+                "deleteGridData": "",
+                "formDefId": "commande_voiture",
+                "deleteSubformData": "",
+                "rules": [],
+                "label": "Delete",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-danger",
+                "datalist_type": "row_action",
+                "abortRelatedRunningProcesses": "",
+                "header_label": ""
+            }
+        }
+    ],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "nom",
+            "id": "column_0",
+            "label": "Nom",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "prenom",
+            "id": "column_1",
+            "label": "Prénom",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "numero_de_telephone",
+            "id": "column_2",
+            "label": "Numéro de téléphone",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "email",
+            "id": "column_3",
+            "label": "Email",
+            "sortable": "false",
+            "datalist_type": "column"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "renderHtml": "",
+            "format": {
+                "className": "org.joget.BeanShellFormatter",
+                "properties": {"script": "import java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport javax.sql.DataSource;\nimport org.joget.apps.app.service.AppUtil;\nimport org.joget.commons.util.LogUtil;\nimport org.joget.apps.form.model.Form;\nimport org.joget.apps.form.service.FormService;\nimport org.joget.apps.form.service.FormUtil;\nimport org.joget.apps.form.model.Element;\nimport org.joget.apps.form.model.*;\nimport org.joget.apps.form.service.*;\nimport java.sql.*;\nimport org.apache.commons.collections.SequencedHashMap;\nimport java.util.*;\nimport org.joget.commons.util.UuidGenerator;\nimport org.joget.workflow.model.service.*;\nimport org.joget.workflow.model.WorkflowProcessResult;\nimport org.joget.workflow.model.service.WorkflowManager;\nimport java.time.LocalDate;\nimport java.time.format.DateTimeFormatter;\nimport java.time.format.DateTimeParseException;\nimport org.joget.apps.app.service.AppService;\nimport java.util.Arrays;\nimport org.joget.apps.form.model.FormData;\nimport org.joget.commons.util.UuidGenerator;\nimport java.lang.Thread;\nString uuid = UuidGenerator.getInstance().getUuid();\n\n \nDataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\nConnection con = null;\nPreparedStatement stmtInsert = null;\nResultSet rs = null;\n\n \nString libelle = \"\";\n \n \n\n\n \n// get \ntry {\ncon = ds.getConnection();\n \n\nif (!con.isClosed()) {\n\n    String selectSql = \"select c_nom_marque from jwdb.app_fd_marques where c_uuid = '\"+value+\"' ;\";    \n\n    stmtInsert = con.prepareStatement(selectSql);\n \n    rs = stmtInsert.executeQuery();\n    if (rs.next()) {\n        libelle = rs.getString(1);\n      }   \n}\n} catch (SQLException e) {\n    LogUtil.info(\"error update DAO\", e.getMessage());\n} finally {\n    try {\n        if (con != null) {\n            con.close();\n        }\n    } catch (Exception ex) {\n    }\n}\n \nreturn \"<span>\" + libelle + \"<\/span>\";"}
+            },
+            "label": "Choisir la marque",
+            "sortable": "false",
+            "datalist_type": "column",
+            "exclude_export": "",
+            "name": "marque",
+            "width": "",
+            "headerAlignment": "",
+            "action": {
+                "className": "",
+                "properties": {}
+            },
+            "style": "",
+            "id": "column_6",
+            "alignment": ""
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "renderHtml": "",
+            "format": {
+                "className": "org.joget.apps.datalist.lib.DefaultFormatter",
+                "properties": {
+                    "size": "",
+                    "color": "",
+                    "field": "nom_modele",
+                    "formDefId": "modele_voiture",
+                    "formatting": ""
+                }
+            },
+            "label": "Sélectionner le modèle",
+            "sortable": "false",
+            "datalist_type": "column",
+            "exclude_export": "",
+            "name": "modele",
+            "width": "",
+            "headerAlignment": "",
+            "action": {
+                "className": "",
+                "properties": {}
+            },
+            "style": "",
+            "id": "column_4",
+            "alignment": ""
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "couleur_voiture",
+            "id": "column_7",
+            "label": "Couleur de la voiture",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "mode_de_paiement",
+            "id": "column_5",
+            "label": "Mode de paiement",
+            "sortable": "false"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Commande voiture",
+    "id": "commande_voiture",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "commande_voiture",
+            "extraCondition": ""
+        }
+    },
+    "actions": [{
+        "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+        "id": "action_0",
+        "properties": {
+            "visible": "",
+            "hrefColumn": "",
+            "hrefParam": "",
+            "label": "Ajouter",
+            "href": "ajouter_commande?embed=true",
+            "confirmation": "",
+            "datalist_type": "action",
+            "target": "popup"
+        }
+    }],
+    "order": ""
+}

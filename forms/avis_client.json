@@ -1,0 +1,143 @@
+{
+    "elements": [{
+        "elements": [{
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.TextArea",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "readonly": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Avis",
+                        "id": "votre_avis",
+                        "placeholder": "",
+                        "rows": "5",
+                        "cols": "20",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "readonly": "",
+                        "size": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "multiple": "",
+                        "options": [
+                            {
+                                "label": "0",
+                                "value": "0",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "1",
+                                "value": "1",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "2",
+                                "value": "2",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "3",
+                                "value": "3",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "4",
+                                "value": "4",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "5",
+                                "value": "5",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "6",
+                                "value": "6",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "7",
+                                "value": "7",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "8",
+                                "value": "8",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "9",
+                                "value": "9",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "10",
+                                "value": "10",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Note",
+                        "id": "note",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                }
+            ],
+            "className": "org.joget.apps.form.model.Column",
+            "properties": {"width": "100%"}
+        }],
+        "className": "org.joget.apps.form.model.Section",
+        "properties": {
+            "visibilityControl": "",
+            "permissionReadonly": "",
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "label": "Que pensez-vous de notre service!",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityValue": "",
+            "regex": "",
+            "readonly": "",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "comment": "",
+            "id": "avis_service",
+            "join": "",
+            "readonlyLabel": ""
+        }
+    }],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "loadBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "name": "Avis client",
+        "description": "",
+        "id": "avis_client",
+        "storeBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "tableName": "avis_client"
+    }
+}

@@ -1,0 +1,104 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_0",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Modifier",
+                "href": "modification_prets?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "popup",
+                "header_label": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.datalist.lib.FormRowDeleteDataListAction",
+            "id": "rowAction_1",
+            "properties": {
+                "deleteFiles": "",
+                "deleteGridData": "",
+                "formDefId": "pret",
+                "deleteSubformData": "",
+                "rules": [],
+                "label": "Supprimer",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-danger",
+                "datalist_type": "row_action",
+                "abortRelatedRunningProcesses": "",
+                "header_label": ""
+            }
+        }
+    ],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "email_client",
+            "id": "column_3",
+            "label": "Email du client",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "pret_actif",
+            "id": "column_0",
+            "label": "Prêt actif",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "montant_du_credit",
+            "id": "column_2",
+            "label": "Montant du crédit",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "annuite_du_pret",
+            "id": "column_1",
+            "label": "Annuité du prêt",
+            "sortable": "false"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Liste des prêts ",
+    "id": "liste_prets",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "pret",
+            "extraCondition": ""
+        }
+    },
+    "actions": [{
+        "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+        "id": "action_0",
+        "properties": {
+            "visible": "true",
+            "hrefColumn": "id",
+            "hrefParam": "id",
+            "label": "Ajouter",
+            "href": "ajout_pret?embed=true",
+            "confirmation": "",
+            "datalist_type": "action",
+            "target": "popup"
+        }
+    }],
+    "order": ""
+}

@@ -1,0 +1,61 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [],
+    "columns": [{
+        "filterable": true,
+        "hidden": "false",
+        "renderHtml": "",
+        "format": {
+            "className": "",
+            "properties": {}
+        },
+        "label": "Nom Modèle",
+        "sortable": "true",
+        "datalist_type": "column",
+        "exclude_export": "",
+        "name": "nom_modele",
+        "width": "",
+        "headerAlignment": "",
+        "action": {
+            "className": "",
+            "properties": {}
+        },
+        "style": "",
+        "id": "column_0",
+        "alignment": ""
+    }],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [{
+        "hidden": "",
+        "name": "id_master",
+        "id": "filter_0",
+        "label": "id_master",
+        "type": {
+            "className": "org.joget.apps.datalist.lib.TextFieldDataListFilterType",
+            "properties": {
+                "defaultValue": "#requestParam.uuid#",
+                "filterSelection": "",
+                "searchFields": ""
+            }
+        },
+        "datalist_type": "filter",
+        "filterParamName": "d-2612709-fn_id_master"
+    }],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Liste modèles",
+    "id": "liste_modeles",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "modele_voiture",
+            "extraCondition": ""
+        }
+    },
+    "actions": [],
+    "order": ""
+}

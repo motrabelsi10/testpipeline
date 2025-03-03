@@ -1,0 +1,121 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_0",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Modifier",
+                "href": "modification_modele?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "popup",
+                "header_label": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.datalist.lib.FormRowDeleteDataListAction",
+            "id": "rowAction_1",
+            "properties": {
+                "deleteFiles": "",
+                "deleteGridData": "",
+                "formDefId": "modele_voiture",
+                "deleteSubformData": "",
+                "rules": [],
+                "label": "Supprimer",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-danger",
+                "datalist_type": "row_action",
+                "abortRelatedRunningProcesses": "",
+                "header_label": ""
+            }
+        }
+    ],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "nom_modele",
+            "id": "column_0",
+            "label": "Nom Modèle",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "date_de_lancement",
+            "id": "column_9",
+            "label": "Date de lancement",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "max_marge_prix",
+            "id": "column_1",
+            "label": "Max marge prix",
+            "sortable": "false",
+            "datalist_type": "column"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "min_marge_id",
+            "id": "column_2",
+            "label": "Minimum marge prix",
+            "sortable": "false",
+            "datalist_type": "column"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [{
+        "hidden": "true",
+        "name": "id_master",
+        "id": "filter_0",
+        "label": "id_master",
+        "type": {
+            "className": "org.joget.apps.datalist.lib.TextFieldDataListFilterType",
+            "properties": {
+                "defaultValue": "",
+                "filterSelection": "",
+                "searchFields": ""
+            }
+        },
+        "datalist_type": "filter",
+        "filterParamName": "d-7585021-fn_id_master"
+    }],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Param des modeles",
+    "id": "paramtrage_des_modeles",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "modele_voiture",
+            "extraCondition": ""
+        }
+    },
+    "actions": [{
+        "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+        "id": "action_0",
+        "properties": {
+            "visible": "true",
+            "hrefColumn": "",
+            "hrefParam": "",
+            "label": "Ajouter",
+            "href": "ajout_modele?embed=true&id_master=#requestParam.id_master#",
+            "confirmation": "",
+            "datalist_type": "action",
+            "target": "popup"
+        }
+    }],
+    "order": ""
+}

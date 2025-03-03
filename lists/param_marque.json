@@ -1,0 +1,97 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_1",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Modifier",
+                "href": "modification_marque?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "popup",
+                "header_label": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.datalist.lib.FormRowDeleteDataListAction",
+            "id": "rowAction_0",
+            "properties": {
+                "deleteFiles": "",
+                "deleteGridData": "",
+                "formDefId": "paramtrage_des_marque",
+                "deleteSubformData": "",
+                "rules": [],
+                "label": "Supprimer",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-danger",
+                "datalist_type": "row_action",
+                "abortRelatedRunningProcesses": "",
+                "header_label": ""
+            }
+        }
+    ],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "identity",
+            "id": "column_0",
+            "label": "ID Generator",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "nom_marque",
+            "id": "column_3",
+            "label": "Nom de marque",
+            "sortable": "false",
+            "datalist_type": "column"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "slogan",
+            "id": "column_2",
+            "label": "Slogan",
+            "sortable": "false"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Param marque",
+    "id": "param_marque",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "paramtrage_des_marque",
+            "extraCondition": ""
+        }
+    },
+    "actions": [{
+        "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+        "id": "action_0",
+        "properties": {
+            "visible": "true",
+            "hrefColumn": "",
+            "hrefParam": "",
+            "label": "Ajouter marque et modèle",
+            "href": "ajouter_marque?embed=true",
+            "confirmation": "",
+            "datalist_type": "action",
+            "target": "popup"
+        }
+    }],
+    "order": ""
+}

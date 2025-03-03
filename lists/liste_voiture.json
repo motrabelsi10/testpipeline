@@ -1,0 +1,108 @@
+{
+    "template": {
+        "className": "org.joget.apps.datalist.lib.AppIconTemplate",
+        "properties": {
+            "splitListByColumn": "",
+            "enableSuperApp": "",
+            "columns_desktop": "col-lg-3",
+            "columns_mobile": "col-12",
+            "columns_tablet": "col-md-6"
+        }
+    },
+    "considerFilterWhenGetTotal": "",
+    "useSession": "",
+    "responsiveMode": "",
+    "rowActions": [
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_0",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Détails",
+                "href": "visualisation_voitures?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "_self",
+                "header_label": ""
+            }
+        },
+        {
+            "className": "org.joget.apps.datalist.lib.HyperlinkDataListAction",
+            "id": "rowAction_1",
+            "properties": {
+                "hrefColumn": "id",
+                "hrefParam": "id",
+                "rules": [],
+                "label": "Passer votre commande",
+                "href": "passer_commande?embed=true",
+                "confirmation": "",
+                "link-css-display-type": "btn btn-sm btn-primary",
+                "datalist_type": "row_action",
+                "target": "_self",
+                "header_label": ""
+            }
+        }
+    ],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "marque",
+            "id": "column_3",
+            "label": "Marque",
+            "sortable": "false",
+            "datalist_type": "column"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "renderHtml": "",
+            "format": {
+                "className": "org.joget.apps.datalist.lib.DefaultFormatter",
+                "properties": {
+                    "size": "",
+                    "color": "",
+                    "field": "nom_modele",
+                    "formDefId": "modele_voiture",
+                    "formatting": ""
+                }
+            },
+            "label": "Modèle",
+            "sortable": "false",
+            "datalist_type": "column",
+            "exclude_export": "",
+            "name": "modele",
+            "width": "",
+            "headerAlignment": "",
+            "action": {
+                "className": "",
+                "properties": {}
+            },
+            "style": "",
+            "id": "column_2",
+            "alignment": ""
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "showDataWhenFilterSet": "",
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "hidePageSize": "",
+    "column_title": [],
+    "name": "Liste voitures",
+    "id": "liste_voiture",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "ajout_voiture",
+            "extraCondition": ""
+        }
+    },
+    "actions": [],
+    "order": ""
+}

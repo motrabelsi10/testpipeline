@@ -1,0 +1,527 @@
+{
+    "elements": [{
+        "elements": [{
+            "elements": [
+                {
+                    "className": "org.joget.apps.form.lib.Radio",
+                    "properties": {
+                        "fullWidth": "",
+                        "controlField": "",
+                        "readonly": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "options": [
+                            {
+                                "label": "M",
+                                "value": "Male",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "F",
+                                "value": "Female",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Genre",
+                        "id": "genre",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.DatePicker",
+                    "properties": {
+                        "yearRange": "c-10:c+10",
+                        "dataFormat": "yyyy-MM-dd",
+                        "startDateFieldId": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "format": "",
+                        "label": "Date de naissance",
+                        "datePickerType": "",
+                        "currentDateAs": "",
+                        "endDateFieldId": "",
+                        "readonly": "",
+                        "allowManual": "",
+                        "workflowVariable": "",
+                        "id": "date_de_naissance",
+                        "placeholder": "",
+                        "disableWeekends": "",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "readonly": "",
+                        "size": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "multiple": "",
+                        "options": [
+                            {
+                                "label": "Aucun diplôme",
+                                "value": "Aucun diplôme",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Doctorat",
+                                "value": "Doctorat",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Baccalauréat",
+                                "value": "Baccalauréat",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Licence",
+                                "value": "Licence",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Master",
+                                "value": "Master",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Niveau d'éducation",
+                        "id": "niveau_d_education",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Profession",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "profession",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.DatePicker",
+                    "properties": {
+                        "yearRange": "c-10:c+10",
+                        "dataFormat": "yyyy-MM-dd",
+                        "startDateFieldId": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "format": "",
+                        "label": "Date d'embauche",
+                        "datePickerType": "",
+                        "currentDateAs": "",
+                        "endDateFieldId": "",
+                        "readonly": "",
+                        "allowManual": "",
+                        "workflowVariable": "",
+                        "id": "date_d_embauche",
+                        "placeholder": "",
+                        "disableWeekends": "",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Revenu",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "revenu",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "readonly": "",
+                        "size": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "multiple": "",
+                        "options": [
+                            {
+                                "label": "Salaire",
+                                "value": "Salaire",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Retraite",
+                                "value": "Retraite",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Revenu d'investissements",
+                                "value": "Revenu d'investissements",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Type de revenu",
+                        "id": "type_de_revenu",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Voiture possédée",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "voiture_possedee",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Maisons possédées",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "maisons_possedees",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.CheckBox",
+                    "properties": {
+                        "fullWidth": "",
+                        "controlField": "",
+                        "readonly": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "options": [
+                            {
+                                "label": "Propriétaire",
+                                "value": "Propriétaire",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Locataire",
+                                "value": "Locataire",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Logement familial",
+                                "value": "Logement familial",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Autre",
+                                "value": "Autre",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Type de logement",
+                        "id": "type_de_logement",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Age logement actuel",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "age_logement_actuel",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.Radio",
+                    "properties": {
+                        "fullWidth": "",
+                        "controlField": "",
+                        "readonly": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "options": [
+                            {
+                                "label": "Industrielle",
+                                "value": "Industrielle",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Montagneuse",
+                                "value": "Montagneuse",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Urbaine",
+                                "value": "Urbaine",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Rurale",
+                                "value": "Rurale",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Type de région",
+                        "id": "type_de_region",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Note de la ville",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "note_de_la_ville",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.SelectBox",
+                    "properties": {
+                        "controlField": "",
+                        "readonly": "",
+                        "size": "",
+                        "optionsBinder": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "multiple": "",
+                        "options": [
+                            {
+                                "label": "En couple",
+                                "value": "En couple",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Divorcé",
+                                "value": "Divorcé",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Célibataire",
+                                "value": "Célibataire",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Marié",
+                                "value": "Marié",
+                                "grouping": ""
+                            },
+                            {
+                                "label": "Veuf",
+                                "value": "Veuf",
+                                "grouping": ""
+                            }
+                        ],
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "workflowVariable": "",
+                        "label": "Statut matrimonial du client",
+                        "id": "statut_matrimonial_du_client",
+                        "value": "",
+                        "readonlyLabel": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Nombre d'enfants",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "nombre_enfants",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                },
+                {
+                    "className": "org.joget.apps.form.lib.TextField",
+                    "properties": {
+                        "requiredSanitize": "",
+                        "maxlength": "",
+                        "validator": {
+                            "className": "",
+                            "properties": {}
+                        },
+                        "label": "Nombre de membres de la famille",
+                        "disableIncrementDecrementArrow": "",
+                        "readonly": "",
+                        "size": "",
+                        "workflowVariable": "",
+                        "style": "",
+                        "id": "nombre_de_membres_de_la",
+                        "placeholder": "",
+                        "value": "",
+                        "readonlyLabel": "",
+                        "storeNumeric": ""
+                    }
+                }
+            ],
+            "className": "org.joget.apps.form.model.Column",
+            "properties": {"width": "100%"}
+        }],
+        "className": "org.joget.apps.form.model.Section",
+        "properties": {
+            "visibilityControl": "",
+            "permissionReadonly": "",
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "label": "Informations client",
+            "reverse": "",
+            "storeBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "visibilityValue": "",
+            "regex": "",
+            "readonly": "",
+            "loadBinder": {
+                "className": "",
+                "properties": {}
+            },
+            "comment": "",
+            "id": "informations_client",
+            "join": "",
+            "readonlyLabel": ""
+        }
+    }],
+    "className": "org.joget.apps.form.model.Form",
+    "properties": {
+        "loadBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "name": "Informations client",
+        "description": "",
+        "id": "informations_client",
+        "storeBinder": {"className": "org.joget.apps.form.lib.WorkflowFormBinder"},
+        "tableName": "informations_client"
+    }
+}

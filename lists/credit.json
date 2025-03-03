@@ -1,0 +1,26 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [],
+    "columns": [],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Crédit",
+    "id": "credit",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.BeanShellDatalistBinder",
+        "properties": {
+            "getDataScript": "import java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport javax.sql.DataSource;\r\nimport org.joget.apps.app.service.AppUtil;\r\nimport org.joget.apps.form.model.FormRowSet;\r\nimport org.joget.apps.form.model.FormRow;\r\nimport org.joget.commons.util.LogUtil;\r\n\r\n// Récupérer l'email de l'utilisateur actuel\r\nString currentUserEmail = \"#currentUser.email#\";\r\n\r\n// Créer un FormRowSet pour contenir les résultats\r\nFormRowSet formRowSet = new FormRowSet();\r\n\r\n// Connexion à la base de données\r\nConnection con = null;\r\nPreparedStatement stmt = null;\r\nResultSet rs = null;\r\n\r\ntry {\r\n    // Connexion à la base de données\r\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n    con = ds.getConnection();\r\n\r\n    if (!con.isClosed()) {\r\n        // Requête pour récupérer les informations des prêts basées sur l'email du client\r\n        String sql = \"SELECT c_montant_du_credit, c_annuite_du_pret, c_email_client, c_pret_actif \" +\r\n                     \"FROM jwdb.app_fd_pret \" +\r\n                     \"WHERE c_email_client = ?\";\r\n        stmt = con.prepareStatement(sql);\r\n        stmt.setString(1, currentUserEmail);  // Utilisation de l'email de l'utilisateur connecté pour filtrer\r\n        rs = stmt.executeQuery();\r\n\r\n        // Parcourir les résultats et les ajouter au FormRowSet\r\n        while (rs.next()) {\r\n            FormRow row = new FormRow();\r\n            row.put(\"montant_du_credit\", rs.getString(\"c_montant_du_credit\"));\r\n            row.put(\"annuite_du_pret\", rs.getString(\"c_annuite_du_pret\"));\r\n            row.put(\"email_client\", rs.getString(\"c_email_client\"));\r\n            row.put(\"pret_actif\", rs.getString(\"c_pret_actif\"));  // Ajouter la valeur du prêt actif\r\n            formRowSet.add(row);\r\n        }\r\n    }\r\n} catch (Exception e) {\r\n    LogUtil.error(\"Error retrieving loan data\", e, e.getMessage());\r\n} finally {\r\n    try {\r\n        if (rs != null) rs.close();\r\n        if (stmt != null) stmt.close();\r\n        if (con != null) con.close();\r\n    } catch (Exception ex) {\r\n        LogUtil.error(\"Error closing database connection\", ex, ex.getMessage());\r\n    }\r\n}\r\n\r\n// Retourner le FormRowSet rempli avec les données du prêt\r\nreturn formRowSet;",
+            "getTotalScript": "import java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport javax.sql.DataSource;\r\nimport org.joget.apps.app.service.AppUtil;\r\n\r\nString currentUserEmail = \"#currentUser.email#\";\r\n\r\n// Connexion à la base de données\r\nConnection con = null;\r\nPreparedStatement stmt = null;\r\nint totalRows = 0;\r\n\r\ntry {\r\n    // Connexion à la base de données\r\n    DataSource ds = (DataSource) AppUtil.getApplicationContext().getBean(\"setupDataSource\");\r\n    con = ds.getConnection();\r\n\r\n    if (!con.isClosed()) {\r\n        // Requête pour compter le nombre total de prêts associés à l'email du client\r\n        String sql = \"SELECT COUNT(*) FROM jwdb.app_fd_pret WHERE c_email_client = ?\";\r\n        stmt = con.prepareStatement(sql);\r\n        stmt.setString(1, currentUserEmail);  // Filtrer par l'email du client\r\n        ResultSet rs = stmt.executeQuery();\r\n\r\n        if (rs.next()) {\r\n            totalRows = rs.getInt(1);  // Obtenir le nombre total de lignes\r\n        }\r\n    }\r\n} catch (Exception e) {\r\n    LogUtil.error(\"Error retrieving total loan data rows\", e, e.getMessage());\r\n} finally {\r\n    try {\r\n        if (con != null) con.close();\r\n        if (stmt != null) stmt.close();\r\n    } catch (Exception ex) {\r\n        LogUtil.error(\"Error closing database connection\", ex, ex.getMessage());\r\n    }\r\n}\r\n\r\n// Retourner le nombre total de lignes\r\nreturn totalRows;",
+            "getColumnScript": "// Retourner les colonnes disponibles que vous souhaitez afficher dans le Datalist\r\nreturn new String[] { \"Email du client\", \"Annuité du prêt\", \"Montant du crédit\", \"Prêt actif\" };\r\n",
+            "primaryKey": "id"
+        }
+    },
+    "actions": [],
+    "order": ""
+}

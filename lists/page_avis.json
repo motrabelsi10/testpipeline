@@ -1,0 +1,41 @@
+{
+    "template": {
+        "className": "",
+        "properties": {}
+    },
+    "rowActions": [],
+    "columns": [
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "votre_avis",
+            "id": "column_0",
+            "label": "Avis",
+            "sortable": "false"
+        },
+        {
+            "filterable": true,
+            "hidden": "false",
+            "name": "note",
+            "id": "column_1",
+            "label": "Note",
+            "sortable": "false"
+        }
+    ],
+    "pageSize": "0",
+    "orderBy": "",
+    "description": "",
+    "filters": [],
+    "pageSizeSelectorOptions": "10,20,30,40,50,100",
+    "name": "Page des avis",
+    "id": "page_avis",
+    "binder": {
+        "className": "org.joget.apps.datalist.lib.FormRowDataListBinder",
+        "properties": {
+            "formDefId": "avis_client",
+            "extraCondition": ""
+        }
+    },
+    "actions": [],
+    "order": ""
+}
