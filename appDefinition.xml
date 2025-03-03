@@ -1,5 +1,4 @@
 <appDefinition>
-   <appId>vente_voitures</appId>
    <id>vente_voitures</id>
    <version></version>
    <name>Vente voitures</name>
@@ -183,7 +182,7 @@
       <appResource>
          <id>catalogue.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>15323</filesize>
          <permissionClass>org.joget.apps.userview.lib.LoggedInUserPermission</permissionClass>
          <permissionProperties>{&quot;permission&quot;: { &quot;className&quot;: &quot;org.joget.apps.userview.lib.LoggedInUserPermission&quot;, &quot;properties&quot;: {}}}</permissionProperties>
@@ -191,7 +190,7 @@
       <appResource>
          <id>contact.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>24913</filesize>
          <permissionClass>org.joget.apps.userview.lib.LoggedInUserPermission</permissionClass>
          <permissionProperties>{&quot;permission&quot;: { &quot;className&quot;: &quot;org.joget.apps.userview.lib.LoggedInUserPermission&quot;, &quot;properties&quot;: {}}}</permissionProperties>
@@ -199,35 +198,35 @@
       <appResource>
          <id>e-mail.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>23825</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.e-mail.png#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>localisation.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>20689</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.localisation.png#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>logo.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>2412</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.logo.png#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>telephoner.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>35175</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.telephoner.png#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>témoignage.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>26558</filesize>
          <permissionClass>org.joget.apps.userview.lib.LoggedInUserPermission</permissionClass>
          <permissionProperties>{&quot;permission&quot;: { &quot;className&quot;: &quot;org.joget.apps.userview.lib.LoggedInUserPermission&quot;, &quot;properties&quot;: {}}}</permissionProperties>
@@ -235,21 +234,21 @@
       <appResource>
          <id>voiture_r.jpg</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>12546</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.voiture_r.jpg#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>voiture.jpg</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>5710</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.voiture.jpg#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
       <appResource>
          <id>voiture.png</id>
          <appId>vente_voitures</appId>
-         <appVersion>5</appVersion>
+         <appVersion>1</appVersion>
          <filesize>125852</filesize>
          <permissionProperties>{&quot;hashvariable&quot;:&quot;#appResource.voiture.png#&quot;,&quot;permission&quot;:{&quot;className&quot;:&quot;&quot;,&quot;properties&quot;:{}}}</permissionProperties>
       </appResource>
