@@ -13,7 +13,7 @@
                         },
                         "workflowVariable": "",
                         "label": "Avis",
-                        "id": "votre_avis_2",
+                        "id": "votre_avis",
                         "placeholder": "",
                         "rows": "5",
                         "cols": "20",
