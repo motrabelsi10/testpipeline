@@ -48,7 +48,7 @@
                             "size": "",
                             "workflowVariable": "",
                             "style": "",
-                            "id": "prenom_1",
+                            "id": "prenom",
                             "placeholder": "Veuillez saisir votre prénom",
                             "value": "",
                             "readonlyLabel": "",
