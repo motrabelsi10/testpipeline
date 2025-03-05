@@ -43,11 +43,12 @@
                                 }
                             },
                             "label": "Prénom",
+                            "disableIncrementDecrementArrow": "",
                             "readonly": "",
                             "size": "",
                             "workflowVariable": "",
                             "style": "",
-                            "id": "prenom",
+                            "id": "prenom_1",
                             "placeholder": "Veuillez saisir votre prénom",
                             "value": "",
                             "readonlyLabel": "",
