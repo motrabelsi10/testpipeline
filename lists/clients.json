@@ -58,10 +58,25 @@
         {
             "filterable": true,
             "hidden": "false",
+            "renderHtml": "",
+            "format": {
+                "className": "",
+                "properties": {}
+            },
+            "label": "Numéro de téléphone_1",
+            "sortable": "false",
+            "datalist_type": "column",
+            "exclude_export": "",
             "name": "numero_de_telephone",
+            "width": "",
+            "headerAlignment": "",
+            "action": {
+                "className": "",
+                "properties": {}
+            },
+            "style": "",
             "id": "column_4",
-            "label": "Numéro de téléphone",
-            "sortable": "false"
+            "alignment": ""
         },
         {
             "filterable": true,
